@@ -24,7 +24,7 @@ import java.io.IOException;
       System.out.println(line);
     }
 
-    checkfaster ();
+    // checkfaster ();
 
   }
 
@@ -53,30 +53,17 @@ import java.io.IOException;
   }
 
   public static String[] stringparsebig(String str) {
-    StringBuilder builder = new StringBuilder();
     String[] tmp = str
-        .replaceAll("\\[|\\]|\\{|\\}", "")
-        .split(",");
+        .replace("\"", "")
+        .split("},\\{");
     String[] out = new String[tmp.length];
-    for (int i = 0; i < tmp.length; i++) {
-      String element = tmp[i];
-      String[] people = element.split(":");
-      String key = people[0].replaceAll("\"", "").trim();
-      String value = people[1].replaceAll("\"", "").trim();
-      switch (key) {
-        case "фамилия":
-          builder.append("Студент ").append(value).append(" получил ");
-          break;
-        case "оценка":
-          builder.append(value).append(" по предмету ");
-          break;
-        case "предмет":
-          builder.append(value).append(". ");
-          out[i] = builder.toString();
-          builder.setLength(0);
-          break;
+    int ch = 0;
+    for (String s : tmp) {
+      String[] people = s.split(",");
+      out[ch++] = people[0].split(":")[1]+
+      " получила "+people[1].split(":")[1]+" по предмету "
+      +people[2].split(":")[1].replace("}]", "");
       }
-    }
     return out;
   }
 
