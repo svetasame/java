@@ -24,6 +24,7 @@ import java.io.IOException;
       System.out.println(line);
     }
 
+    stringparse11();
     // checkfaster ();
 
   }
@@ -50,6 +51,15 @@ import java.io.IOException;
     }
     builder.setLength(builder.length() - 1);
     System.out.println(builder.toString());
+  }
+
+  public static void stringparse11() {
+    String str = "{\"name\" :\"Ivanov\", \"country\" :\"Russia\", \"city\" :\"Moscow\", \"age\":\"null\"}";
+    String[] strings = str.replaceAll("\\p{P}","").split(" ");
+    StringBuilder build = new StringBuilder();
+    build.append(strings[1]).append("=").append(strings[3]);
+    int i = 0;
+    System.out.println(build);
   }
 
   public static String[] stringparsebig(String str) {

@@ -3,8 +3,8 @@ package seminar2;
 public class seminar2 {
   public static void main (String[] args) {
     String s = "ППривер!т";
-    String s1 = "привер!т";
-    s1 = s;
+    // String s1 = "привер!т";
+    // s1 = s;
 
     Thread r = new Thread();
     Thread r1 = new Thread();
@@ -62,7 +62,7 @@ public class seminar2 {
     System.out.println(s);
     builder1 = null;
 
-    String str = "";
+    // String str = "";
     StringBuilder builder12 = new StringBuilder(); // можно заранее задать огромный массив
     
     long start = System.currentTimeMillis();
